@@ -8,4 +8,6 @@ abstract class LoginRepository {
       {String email, String password});
 
   Future<Either<Failure, UserLoggedInfo>> getUserLogged();
+
+  Future<Either<Failure, Unit>> loggout();
 }

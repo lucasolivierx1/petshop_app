@@ -1,13 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:petshop_app/app/modules/login/domain/entities/login_credential.dart';
-import 'package:petshop_app/app/modules/login/domain/entities/user_logged_info.dart';
 import 'package:petshop_app/app/modules/login/domain/erros/erros.dart';
 import 'package:petshop_app/app/modules/login/domain/repositories/login_repository.dart';
 import 'package:petshop_app/app/modules/login/domain/usecases/get_logged_user.dart';
-import 'package:petshop_app/app/modules/login/domain/usecases/login_with_email.dart';
 import 'package:petshop_app/app/modules/login/infra/models/user_model.dart';
 
 class LoginRepositoryMock extends Mock implements LoginRepository {}
