@@ -15,7 +15,8 @@ main() {
 
   final usecase = LoginWithEmailImpl(repository);
 
-  test('Deve retornar um ErrorLoginEmail com email inválido', () async {
+  test('[EXPECTED ERROR] Deve retornar um ErrorLoginEmail com email inválido',
+      () async {
     var result = await usecase(
         credential:
             LoginCredential.withEmailAndPassword(email: "", password: ""));
@@ -23,7 +24,9 @@ main() {
     expect(result.leftMap((l) => l is ErrorLoginEmail), Left(true));
   });
 
-  test("Deve retornar um ErrorLoginPassword com senha inválida", () async {
+  test(
+      "[EXPECTED ERROR] Deve retornar um ErrorLoginPassword com senha inválida",
+      () async {
     var result = await usecase(
         credential: LoginCredential.withEmailAndPassword(
             email: faker.internet.email(), password: ""));
@@ -31,7 +34,7 @@ main() {
     expect(result.leftMap((l) => l is ErrorLoginPassword), Left(true));
   });
 
-  test("Deve User UserModel", () async {
+  test("[EXPECTED SUCESS] Deve User UserModel", () async {
     var user = UserModel(name: "teste");
     when(repository.loginWithEmail(
             email: anyNamed('email'), password: anyNamed('password')))

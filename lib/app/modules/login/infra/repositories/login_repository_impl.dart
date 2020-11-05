@@ -1,3 +1,4 @@
+import 'package:petshop_app/app/modules/login/domain/entities/user_logged_info.dart';
 import 'package:petshop_app/app/modules/login/domain/erros/erros.dart';
 import 'package:petshop_app/app/modules/login/domain/entities/user_logged.dart';
 import 'package:dartz/dartz.dart';
@@ -7,4 +8,7 @@ class LoginRepositoryImpl implements LoginRepository {
   @override
   Future<Either<Failure, UserLogged>> loginWithEmail(
       {String email, String password}) {}
+
+  @override
+  Future<Either<Failure, UserLoggedInfo>> getUserLogged() {}
 }
