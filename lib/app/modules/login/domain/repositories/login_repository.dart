@@ -9,5 +9,5 @@ abstract class LoginRepository {
 
   Future<Either<Failure, UserLoggedInfo>> getUserLogged();
 
-  Future<Either<Failure, Unit>> loggout();
+  Future<Either<Failure, bool>> loggout();
 }

@@ -4,7 +4,7 @@ import 'package:petshop_app/app/modules/login/domain/repositories/login_reposito
 import 'package:meta/meta.dart';
 
 abstract class UserLoggout {
-  Future<Either<Failure, Unit>> call();
+  Future<Either<Failure, bool>> call();
 }
 
 class UserLoggoutImpl implements UserLoggout {
@@ -13,7 +13,7 @@ class UserLoggoutImpl implements UserLoggout {
   UserLoggoutImpl(this.repository);
 
   @override
-  Future<Either<Failure, Unit>> call() {
+  Future<Either<Failure, bool>> call() {
     return repository.loggout();
   }
 }

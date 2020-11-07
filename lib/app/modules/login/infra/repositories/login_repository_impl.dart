@@ -13,32 +13,19 @@ class LoginRepositoryImpl implements LoginRepository {
   @override
   Future<Either<Failure, UserLogged>> loginWithEmail(
       {String email, String password}) async {
-    try {
-      final userLogged =
-          await dataSource.loginEmail(email: email, password: password);
-      return Right(userLogged);
-    } catch (e) {
-      return Left(ErrorLoginEmail());
-    }
+    final userLogged =
+        await dataSource.loginEmail(email: email, password: password);
+
+    return userLogged;
   }
 
   @override
   Future<Either<Failure, UserLoggedInfo>> getUserLogged() async {
-    try {
-      final user = await dataSource.currentUser();
-      return Right(user);
-    } catch (e) {
-      return Left(ErrorGetLoggedUser());
-    }
+    return await dataSource.currentUser();
   }
 
   @override
-  Future<Either<Failure, Unit>> loggout() async {
-    try {
-      await dataSource.logout();
-      return Right(unit);
-    } catch (e) {
-      return Left(ErrorLoggout(msg: "Error ao tentar fazer logout"));
-    }
+  Future<Either<Failure, bool>> loggout() async {
+    return await dataSource.logout();
   }
 }

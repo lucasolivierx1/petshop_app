@@ -14,11 +14,11 @@ main() {
 
   test('[EXPECTED SUCESS] Deve retornar unit quando fizer loggout', () async {
     when(repository.loggout())
-        .thenAnswer((realInvocation) async => Right(unit));
+        .thenAnswer((realInvocation) async => Right(true));
 
     var result = await usecase();
 
-    expect(result, Right(unit));
+    expect(result, Right(true));
   });
 
   test('[EXPECTED ERROR] Deve null se não houver usuário logado', () async {
